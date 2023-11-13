@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Diamond Capital</title>
+    <link href="img/diamond.svg" rel="icon" type="image/svg+xml">
+    <link rel="preload" href="img/animate.svg" as="image"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Merriweather+Sans:wght@700&family=Quicksand:wght@500;700&display=swap"
+          rel="stylesheet">
+    <style>
+        html {
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .but {
+            animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3.5s both;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @font-face {
+            font-family: 'FH Cordelia Test';
+            src: url("./font/FHCordeliaTest-Regular.woff2");
+            src: url("./font/FHCordeliaTest-Regular.otf");
+            src: url("./font/FHCordeliaTest-Regular.ttf");
+        }
+
+        hr {
+            background-image: linear-gradient(90deg, transparent, #2A2F3A, transparent);
+            border: 0;
+            height: 1px;
+        }
+
+        .hr {
+            /*border-image: linear-gradient(90deg,transparent,#2A2F3A,transparent);*/
+            border-image: linear-gradient(90deg, transparent, #fff, transparent);
+            border-bottom: 13px solid;;
+        }
+
+
+        [aria-expanded="false"] ul {
+            max-height: 0;
+            transition: max-height 0.3s ease-in-out;
+            /*overflow: hidden;*/
+        }
+
+        [aria-expanded="true"] ul {
+            max-height: 300px;
+            transition: max-height 0.6s ease-in-out;
+        }
+
+
+        [aria-expanded="true"] svg {
+            transition: rotate 0.8s ease-in-out;
+            transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+        }
+
+        [aria-expanded="false"] svg {
+            transition: rotate 0.6s ease-in-out;
+            transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+        }
+
+        .slide-in-right,
+        .slide-in-left,
+        .puff-in-center,
+        .slide-left,
+        .slide-right {
+            visibility: hidden;
+        }
+
+        .scroll-animation.flip-in-ver-right {
+            -webkit-animation: flip-in-ver-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: flip-in-ver-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        .scroll-animation.flip-in-ver-left {
+            -webkit-animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        .scroll-animation.slide-in-left {
+            visibility: visible;
+            -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        .scroll-animation.slide-left {
+            visibility: visible;
+            -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        .scroll-animation.slide-right {
+            visibility: visible;
+            -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+
+        /**
+         * ----------------------------------------
+         * animation flip-in-ver-right
+         * ----------------------------------------
+         */
+        @-webkit-keyframes flip-in-ver-right {
+            0% {
+                -webkit-transform: rotateY(-80deg);
+                transform: rotateY(-80deg);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: rotateY(0);
+                transform: rotateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes flip-in-ver-right {
+            0% {
+                -webkit-transform: rotateY(-80deg);
+                transform: rotateY(-80deg);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: rotateY(0);
+                transform: rotateY(0);
+                opacity: 1;
+            }
+        }
+
+        /**
+ * ----------------------------------------
+ * animation flip-in-ver-left
+ * ----------------------------------------
+ */
+        @-webkit-keyframes flip-in-ver-left {
+            0% {
+                -webkit-transform: rotateY(80deg);
+                transform: rotateY(80deg);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: rotateY(0);
+                transform: rotateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes flip-in-ver-left {
+            0% {
+                -webkit-transform: rotateY(80deg);
+                transform: rotateY(80deg);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: rotateY(0);
+                transform: rotateY(0);
+                opacity: 1;
+            }
+        }
+
+        /**
+ * ----------------------------------------
+ * animation slide-left
+ * ----------------------------------------
+ */
+        @-webkit-keyframes slide-left {
+            0% {
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+            }
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slide-left {
+            0% {
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+            }
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+            }
+        }
+
+        /**
+ * ----------------------------------------
+ * animation slide-right
+ * ----------------------------------------
+ */
+        @-webkit-keyframes slide-right {
+            0% {
+                -webkit-transform: translateX(50%);
+                transform: translateX(50%);
+            }
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slide-right {
+            0% {
+                -webkit-transform: translateX(50%);
+                transform: translateX(50%);
+            }
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+            }
+        }
+
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+        }
+
+        /**
+* ----------------------------------------
+* animation slide-in-left
+* ----------------------------------------
+*/
+
+        @-webkit-keyframes slide-in-left {
+            0% {
+                -webkit-transform: translateX(-1000px);
+                transform: translateX(-1000px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-left {
+            0% {
+                -webkit-transform: translateX(-1000px);
+                transform: translateX(-1000px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .scroll-animation.slide-in-right {
+            visibility: visible;
+            -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+            animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+
+        /**
+ * ----------------------------------------
+ * animation slide-in-right
+ * ----------------------------------------
+ */
+        @-webkit-keyframes slide-in-right {
+            0% {
+                -webkit-transform: translateX(1000px);
+                transform: translateX(1000px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-in-right {
+            0% {
+                -webkit-transform: translateX(1000px);
+                transform: translateX(1000px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: translateX(0);
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .scroll-animation.puff-in-center {
+            visibility: visible;
+            -webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+            animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+        }
+
+        /**
+ * ----------------------------------------
+ * animation puff-in-center
+ * ----------------------------------------
+ */
+        @-webkit-keyframes puff-in-center {
+            0% {
+                -webkit-transform: scale(2);
+                transform: scale(2);
+                -webkit-filter: blur(4px);
+                filter: blur(4px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-filter: blur(0px);
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes puff-in-center {
+            0% {
+                -webkit-transform: scale(2);
+                transform: scale(2);
+                -webkit-filter: blur(4px);
+                filter: blur(4px);
+                opacity: 0;
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-filter: blur(0px);
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+
+
+    </style>
+</head>
+<!--<body class="lg:overflow-hidden overflow-hidden h-screen">-->
+<body class="h-screen bg-dark-0 text-light-0 lg:overflow-hidden">
+<!-- Main navigation container -->
+<nav
+        class="fixed z-10 flex w-full flex-nowrap items-center justify-between bg-dark-0 py-2 shadow-lg container mx-auto">
+    <div class="flex w-full flex-wrap items-center justify-between px-3">
+        <div class="ml-2">
+            <!--    Logo        -->
+            <a
+                    class="mb-4 ml-2 mr-5 mt-3 flex items-center lg:mb-0 lg:mt-0 "
+                    href="#">
+                <svg class="w-[156px] h-[29px] lg:w-[234] lg:h-[45]" viewBox="0 0 234 45" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path class="fill-light-0" fill-rule="evenodd" clip-rule="evenodd"
+                          d="M23.872 4.66463L17.8354 12.622H21.4024L23.872 4.66463ZM18.1098 14.8171L29.3598 45L21.6768 14.8171H18.1098ZM7.13415 12.622H10.4268L15.6402 3.56707L7.13415 12.622ZM28.5366 12.622H31.5549L30.1829 5.21341L28.5366 12.622ZM10.9756 14.8171H7.68293L27.7134 44.1768L10.9756 14.8171ZM53.2317 12.622L44.7256 3.56707L49.939 12.622H53.2317ZM48.33 0H12.0358L0 12.8963L21.0627 37.5915L3.28253 13.1707L13.1301 2.19512H47.2357L57.0833 13.1707L39.3031 37.5915L60.3658 12.8963L48.33 0ZM49.3902 14.8171L32.6524 44.1768L52.6829 14.8171H49.3902ZM42.5305 12.622L36.4939 4.66463L38.9634 12.622H42.5305ZM38.689 14.8171L31.0061 45L42.2561 14.8171H38.689ZM28.5366 14.5427L30.1829 44.4512L31.8293 14.5427H28.5366Z"/>
+                    <path class="fill-light-0" fill-rule="evenodd" clip-rule="evenodd"
+                          d="M203 10.0159C203 5.04607 199.453 1.3823 193.705 1.3823H186.118V18.5538H193.705C199.617 18.5538 203 14.9539 203 10.0159ZM188.318 3.3577H193.705C198.106 3.3577 200.734 6.12928 200.734 9.98408C200.734 13.8389 198.27 16.5786 193.705 16.5786H188.318V3.3577ZM152.905 19C158.193 19 162.101 15.2407 162.101 10.0159C162.101 4.79113 158.193 1 152.905 1C147.617 1 143.741 4.79113 143.741 10.0159C143.741 15.2407 147.617 19 152.905 19ZM152.905 3.00724C156.879 3.00724 159.802 5.93826 159.802 10.0159C159.802 14.062 156.879 16.9928 152.905 16.9928C148.964 16.9928 146.008 14.0936 146.008 10.0159C146.007 5.93802 148.964 3.00724 152.905 3.00724ZM123.735 5.14159L130.764 15.3044L137.792 5.14159V18.5538H139.96V1.3823H137.957L130.764 11.8956L123.604 1.3823H121.567V18.5538H123.735L123.735 5.14159ZM168.181 5.71515L179.71 18.554H180.826V1.38254H178.626V14.2214L167.13 1.38254H165.981V18.554H168.181V5.71515ZM97.0275 1.28678H94.794V18.6177H97.0275V1.28678ZM90.8822 10.0159C90.8822 5.04607 87.3349 1.3823 81.587 1.3823H74V18.5538H81.587C87.4991 18.5538 90.8822 14.9539 90.8822 10.0159ZM76.2007 3.3577H81.5873C85.9884 3.3577 88.6161 6.12928 88.6161 9.98408C88.6161 13.8389 86.1528 16.5786 81.5873 16.5786H76.2007V3.3577ZM104.386 13.9344H114.174L116.571 18.5538H118.969L110.2 1.3823H108.36L99.6893 18.5538H102.054L104.386 13.9344ZM109.28 4.31332L113.189 11.9274H105.404L109.28 4.31332Z"/>
+                    <path class="fill-light-0" fill-rule="evenodd" clip-rule="evenodd"
+                          d="M164.541 34.0351H172.759C176.066 34.0351 177.998 31.9005 177.998 29.0332C177.998 26.166 175.935 24.3818 172.465 24.3818H162.347V41.554H164.541L164.541 34.0351ZM164.541 26.3571H172.432C174.56 26.3571 175.706 27.4403 175.706 29.2243C175.706 31.0403 174.56 32.0278 172.333 32.0278H164.54L164.541 26.3571ZM234 39.5785H222.474V24.3816H220.28V41.5538H234V39.5785ZM200.729 41.5538L203.054 36.9342H212.811L215.202 41.5538H217.592L208.85 24.3816H207.016L198.371 41.5538H200.729ZM207.933 27.3127L211.829 34.9271H204.069L207.933 27.3127ZM183.896 24.2861H181.669V41.6177H183.896V24.2861ZM145.219 36.9342H154.976L157.367 41.5538H159.757L151.014 24.3816H149.181L140.536 41.5538H142.894L145.219 36.9342ZM150.098 27.3127L153.994 34.9271H146.234L150.098 27.3127ZM192.279 41.5538H194.473V26.3568H201.906V24.3816H184.846V26.3568H192.279V41.5538ZM131.135 42C134.704 42 137.619 40.3434 139.256 37.3486L137.488 36.0743C136.08 38.655 133.886 39.9929 131.135 39.9929C127.206 39.9929 124.259 37.0936 124.259 33.0158C124.259 28.9377 127.206 26.0068 131.135 26.0068C133.69 26.0068 135.916 27.2174 137.029 29.2884L138.863 28.0142C137.193 25.4653 134.41 24 131.135 24C125.864 24 122 27.7913 122 33.0163C122 38.2406 125.864 42 131.135 42Z"/>
+                </svg>
+            </a>
+        </div>
+        <!-- Hamburger button for mobile view -->
+        <button
+                class="block border-0 bg-transparent px-2  hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 lg:hidden"
+                type="button"
+                aria-label="Toggle navigation">
+            <!-- Hamburger icon -->
+            <span class="[&>svg]:w-7">
+        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="h-7 w-7">
+          <path
+                  fill-rule="evenodd"
+                  d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                  clip-rule="evenodd"/>
+        </svg>
+      </span>
+        </button>
+
+        <!-- Collapsible navbar container -->
+        <div
+                class="hidden  mt-2 lg:pr-2 basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto"
+                id="navbarSupportedContent14">
+            <!-- Right links -->
+            <ul
+                    class="list-style-none text-center mr-auto flex flex-col pl-0 lg:mt-1 lg:flex-row font-bold items-center">
+                <!-- Why us link -->
+                <li
+                        class="my-5 pl-2 lg:my-0 lg:pr-4">
+                    <a
+                            class="underline-offset-[6px] transition duration-500 ease-in-out  hover:underline active:underline focus:underline"
+                            aria-current="page"
+                            href="#why"
+                    >Why us</a>
+                </li>
+                <!-- Dropdown link -->
+                <li
+                        class="my-5 pl-2 lg:my-0 lg:pr-5">
+                    <!-- Dropdown Services-->
+                    <a
+                            class="flex items-center justify-center transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none"
+                            href="#"
+                            type="button">
+                        Services
+                        <span class="ml-1 w-2">
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="h-5 w-5">
+                <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd"/>
+              </svg>
+            </span>
+                    </a>
+                    <ul
+                            class="hidden lg:absolute lg:z-[1000] lg:float-left m-0 min-w-max list-none overflow-hidden rounded-lg border-none bg-light-0 bg-clip-padding   lg:text-[#121419] lg:text-left text-base shadow-lg lg:bg-light-1 text-sm font-medium pt-2 lg:pt-1">
+                        <li>
+                            <a
+                                    class="block w-full light-0space-nowrap bg-transparent px-4 py-2  hover:text-light-1 active:text-light-1 active:no-underline lg:hover:text-[#121419] lg:hover:font-bold lg:active:font-bold"
+                                    href="#"
+                            >Media support</a>
+                        </li>
+                        <li>
+                            <a
+                                    class="block w-full light-0space-nowrap bg-transparent px-4 py-2 hover:text-light-1 active:text-light-1 active:no-underline lg:hover:text-[#121419] lg:hover:font-bold lg:active:font-bold"
+                                    href="#"
+                            >Consultancy</a>
+                        </li>
+                        <li>
+                            <a
+                                    class="block w-full light-0space-nowrap bg-transparent px-4 py-2 hover:text-light-1 active:text-light-1 active:no-underline lg:hover:text-[#121419] lg:hover:font-bold lg:active:font-bold"
+                                    href="#"
+                            >Technical</a>
+                        </li>
+                        <li>
+                            <a
+                                    class="block w-full light-0space-nowrap bg-transparent px-4 py-2 hover:text-light-1 active:text-light-1 active:no-underline lg:hover:text-[#121419] lg:hover:font-bold lg:active:font-bold"
+                                    href="#"
+                            >Investment</a>
+                        </li>
+                        <li>
+                            <a
+                                    class="block w-full light-0space-nowrap bg-transparent px-4 py-2 hover:text-light-1 active:text-light-1 active:no-underline lg:hover:text-[#121419] lg:hover:font-bold lg:active:font-bold"
+                                    href="#"
+                            >Legal support</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- Price link -->
+                <li
+                        class="my-5 pl-2 lg:my-0 lg:pr-4">
+                    <a
+                            class="underline-offset-[6px] transition duration-500 ease-in-out  hover:underline active:underline focus:underline"
+                            aria-current="page"
+                            href="#price"
+                    >Price</a>
+                </li>
+                <!-- Team link -->
+                <li
+                        class="my-5 pl-2 lg:my-0 lg:pr-4">
+                    <a
+                            class="underline-offset-[6px] transition duration-500 ease-in-out  hover:underline active:underline focus:underline"
+                            aria-current="page"
+                            href="#team"
+                    >Team</a>
+                </li>
+                <!-- Get in touch link -->
+                <li
+                        class="my-5 pl-2 lg:hidden">
+                    <a
+                            class="hover:text-light-1 active:text-light-1"
+                            aria-current="page"
+                            href="#"
+                    >Get in touch</a>
+                </li>
+
+                <!-- Get in touch button -->
+                <li
+                        class="pl-2 lg:my-0 lg:pr-2 hidden lg:!flex">
+                    <a
+                            aria-current="page"
+                            href="#last"
+                    >
+                        <button
+                                type="button"
+                                class="inline-block rounded-full border border-light-0 px-4 py-1 font-medium  leading-normal text-light-0 transition duration-150 ease-in-out hover:bg-light-1 hover:border-light-1 focus:bg-light-1 hover:text-dark-1 focus:border-light-1  focus:outline-none focus:text-dark-1 focus:ring-0 active:border-light-1 active:bg-light-1 active:text-dark-1  hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                            Get in touch
+                        </button>
+                    </a>
+                </li>
+            </ul>
+            <ul
+                    class="mt-4 list-style-none text-center mr-auto flex flex-col pl-0 lg:mt-1 lg:flex-row font-bold items-center lg:hidden">
+                <svg class="my-6" width="313" height="1" viewBox="0 0 313 1" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="313" height="1" fill="url(#paint0_linear_757_2421)"/>
+                    <defs>
+                        <linearGradient id="paint0_linear_757_2421" x1="0" y1="0.998539" x2="313" y2="0.998539"
+                                        gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#343A46" stop-opacity="0"/>
+                            <stop offset="0.270625" stop-color="#343A46"/>
+                            <stop offset="0.720492" stop-color="#343A46"/>
+                            <stop offset="1" stop-color="#343A46" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <!-- Phone -->
+                <li
+                        class="my-4 pl-2 lg:my-0 lg:pl-4 lg:pr-2 text-2xl">
+                    +123-456-7890
+                </li>                <!-- Email -->
+                <li
+                        class="my-4 pl-2 lg:my-0 lg:pl-4 lg:pr-2 text-base font-medium">
+                    hello@reallygreatsite.com
+                </li>
+                <!-- Social links -->
+                <li
+                        class="my-4 pl-2">
+                    <div class="flex flex-row items-center">
+                        <a href="#" class="px-3">
+                            <svg class="fill-light-1 transition duration-150 ease-in-out hover:fill-light-0 active:fill-light-0 focus:bg-light-0"
+                                 xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 29 30"
+                                 fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M14.4297 3.67615C17.3832 3.67615 17.7536 3.68902 18.9135 3.74385C20.071 3.79854 20.8615 3.98869 21.5532 4.26676C22.2684 4.55424 22.8748 4.93892 23.4794 5.56435C24.084 6.18977 24.4559 6.81721 24.7338 7.55699C25.0027 8.2726 25.1865 9.09039 25.2393 10.2878C25.2922 11.4877 25.3047 11.8708 25.3047 14.9261C25.3047 17.9815 25.2922 18.3646 25.2393 19.5645C25.1865 20.7619 25.0027 21.5797 24.7338 22.2953C24.4559 23.0351 24.084 23.6625 23.4794 24.2879C22.8748 24.9134 22.2684 25.298 21.5532 25.5855C20.8615 25.8636 20.071 26.0538 18.9135 26.1084C17.7536 26.1632 17.3832 26.1761 14.4297 26.1761C11.4762 26.1761 11.1059 26.1632 9.94596 26.1084C8.78838 26.0538 7.99785 25.8636 7.30619 25.5855C6.59102 25.298 5.98453 24.9134 5.37995 24.2879C4.77538 23.6625 4.40352 23.0351 4.12566 22.2953C3.85671 21.5797 3.67291 20.7619 3.62014 19.5645C3.56718 18.3646 3.55469 17.9815 3.55469 14.9261C3.55469 11.8708 3.56718 11.4877 3.62014 10.2878C3.67291 9.09039 3.85671 8.2726 4.12566 7.55699C4.40352 6.81721 4.77538 6.18977 5.37995 5.56435C5.98453 4.93892 6.59102 4.55424 7.30619 4.26676C7.99785 3.98869 8.78838 3.79854 9.94596 3.74385C11.1059 3.68902 11.4762 3.67615 14.4297 3.67615ZM14.4297 9.14912C11.3455 9.14912 8.84525 11.7356 8.84525 14.9261C8.84525 18.1167 11.3455 20.7031 14.4297 20.7031C17.5139 20.7031 20.0141 18.1167 20.0141 14.9261C20.0141 11.7356 17.5139 9.14912 14.4297 9.14912ZM14.4297 18.6761C12.4277 18.6761 10.8047 16.9972 10.8047 14.9261C10.8047 12.8551 12.4277 11.1761 14.4297 11.1761C16.4318 11.1761 18.0547 12.8551 18.0547 14.9261C18.0547 16.9972 16.4318 18.6761 14.4297 18.6761ZM21.5398 8.92085C21.5398 8.17526 20.9556 7.57084 20.2348 7.57084C19.5141 7.57084 18.9298 8.17526 18.9298 8.92085C18.9298 9.6664 19.5141 10.2709 20.2348 10.2709C20.9556 10.2709 21.5398 9.6664 21.5398 8.92085Z"
+                                />
+                            </svg>
+                        </a>
+                        <a href="#" class="px-3">
+                            <svg class="fill-light-1 transition duration-150 ease-in-out transition duration-150 ease-in-out  hover:fill-light-0 active:fill-light-0"
+                                 xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
+                                 fill="none">
+                                <path d="M29.1694 9.00895C29.1694 9.00895 28.8854 6.91987 28.0185 6.00194C26.9191 4.79597 25.6867 4.78964 25.1219 4.72001C21.0744 4.41297 14.9971 4.45096 14.9971 4.45096C14.9971 4.45096 8.9198 4.41297 4.8723 4.72001C4.30747 4.78964 3.07509 4.79597 1.97563 6.00194C1.10874 6.91987 0.824808 9.00895 0.824808 9.00895C0.824808 9.00895 0.534838 11.4589 0.480469 13.912V16.2099C0.534838 18.663 0.824808 21.113 0.824808 21.113C0.824808 21.113 1.10572 23.202 1.97563 24.12C3.07509 25.3259 4.52192 25.2879 5.16529 25.4146C7.43974 25.6425 14.7403 25.6963 14.9941 25.6994C14.9971 25.6994 21.0774 25.7089 25.1249 25.4019C25.6897 25.3323 26.9221 25.3259 28.0216 24.12C28.8884 23.202 29.1724 21.113 29.1724 21.113C29.1724 21.113 29.4623 18.6599 29.4805 16.2099V13.912C29.4593 11.4589 29.1694 9.00895 29.1694 9.00895ZM12.043 19.3182V10.772L19.8178 15.0451L12.043 19.3182Z"
+                                />
+                            </svg>
+                        </a>
+                        <a href="#" class="px-3">
+                            <svg class="fill-light-1 transition duration-150 ease-in-out hover:fill-light-0 active:fill-light-0"
+                                 xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 30 29"
+                                 fill="none">
+                                <path d="M0.939357 0.905884L12.1359 15.8768L0.868652 28.0487H3.40446L13.2689 17.392L21.2392 28.0487H29.8687L18.0421 12.2358L28.5296 0.905884H25.9938L16.9091 10.7205L9.56883 0.905884H0.939357ZM4.66846 2.77377H8.63286L26.139 26.1805H22.1746L4.66846 2.77377Z"
+                                />
+                            </svg>
+                            </svg>
+                        </a>
+                        <a href="#" class="px-3">
+                            <svg class="fill-light-1 transition duration-150 ease-in-out hover:fill-light-0 active:fill-light-0"
+                                 xmlns="http://www.w3.org/2000/svg" width="29" height="25" viewBox="0 0 29 25"
+                                 fill="none">
+                                <path d="M11.5289 16.4306L11.072 23.0784C11.7257 23.0784 12.0088 22.7879 12.3483 22.4391L15.4129 19.4093L21.7631 24.2201C22.9278 24.8915 23.7483 24.538 24.0625 23.1117L28.2308 2.90649L28.2319 2.9053C28.6013 1.1243 27.6093 0.427859 26.4746 0.864774L1.97363 10.5686C0.301483 11.24 0.326801 12.2043 1.68937 12.6412L7.95329 14.6568L22.5031 5.23869C23.1879 4.76963 23.8105 5.02916 23.2983 5.49822L11.5289 16.4306Z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+
+                </li>
+                <!-- Copyright -->
+                <li
+                        class="my-4 pl-2 lg:my-0 lg:pl-4 lg:pr-2 text-base font-medium text-light-1">
+                    Copyright ©2023 diamond-capital
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+<section id="preload"
+         class="z-50 grid grid-cols-1 content-center h-screen relative bg-dark-0 need-animation">
+    <object class="" type="image/svg+xml"></object>
+    <div class="text-center absolute bottom-4 m-auto left-0 right-0 but">
+        <a id="hide-preload" href="#"
+           class="inline-block rounded-full border border-light-1 border-opacity-20 leading-normal transition duration-150 ease-in-out hover:border-light-0 hover:bg-light-1 hover:bg-opacity-10 focus:border-light-0 focus:outline-none focus:ring-0 active:border-light-0 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+            <svg class="w-11 h-11" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25 23L30 28L35 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path d="M25 33L30 38L35 33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </a>
+
+    </div>
+
+
+</section>
+<div id="main" class="container pt-12 mx-auto lg:px-6">
+    <!-- Section: First Screen   -->
+    <section id="first" class="text-center lg:text-left content-center lg:h-main relative">
+        <div class="p-6 lg:p-12">
+            <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
+
+                <div class="p-8  lg:mb-0 bg-contain bg-no-repeat bg-center lg:order-last rounded-b-full overflow-hidden relative slide-in-left need-animation">
+                    <div class="absolute w-[10%] h-[100%] right-[15%] bg-dark-3">
+                        <img class="w-[45%] mx-auto" src="img/first-text.svg">
+                    </div>
+                    <img src="./img/bg-first-screen.png">
+                </div>
+
+                <div class="mb-12 lg:mb-0">
+
+                    <p class="rounded bg-light-3 font-medium px-2 inline-block text-light-1">Web 3.0 investment fund</p>
+
+                    <h2 class="my-8 text-5xl lg:text-6xl font-['FH_Cordelia_Test'] leading-tight tracking-tight">
+                        Diamond Capital Innovation
+                    </h2>
+                    <p class="text-xl font-medium text-light-1">Future of next internet generation.</p>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="text-center absolute bottom-4 m-auto left-0 right-0 hidden lg:block">
+            <span class="text-xs block mb-2 text-light-1">Find out more</span>
+            <a href="#why"
+               class="inline-block rounded-full border border-light-1 border-opacity-20 leading-normal transition duration-150 ease-in-out hover:border-light-0 hover:bg-light-1 hover:bg-opacity-10 focus:border-light-0 focus:outline-none focus:ring-0 active:border-light-0 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                <svg class="w-11 h-11" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 23L30 28L35 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M25 33L30 38L35 33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Section: Why Us   -->
+    <section id="why" class="text-center lg:text-left lg:h-screen relative">
+        <div class="px-6 lg:pt-16">
+            <div class="grid items-center lg:grid-cols-2 lg:gap-x-12 content-end">
+
+                <div class="p-5  lg:mb-0 bg-contain bg-no-repeat bg-center rounded-b-full overflow-hidden slide-in-right need-animation lg:flex lg:items-end">
+                    <img src="./img/bg-why.png" loading="lazy">
+                </div>
+
+                <div class="mb-12 lg:mb-0">
+
+                    <h2 class="my-3 text-5xl lg:text-6xl font-['FH_Cordelia_Test'] leading-tight tracking-tight">
+                        Why us?
+                    </h2>
+                    <p class="lg:pr-24 lg:text-2xl tracking-wide">We make the people that will make the future
+                        world.</p>
+                    <div class="grid items-center lg:grid-cols-2 lg:gap-x-8 text-xs text-light-1">
+                        <p class="mt-8">
+                            More than 6 years of established practice and extensive experience in digital assets
+                            represented by local teams in over 50 countries
+                        </p>
+                        <p class="mt-8">
+                            A dominant network of cryptoexchanges, most prominent ecosystems, access to close funding
+                            rounds in the Digital Assets/ Blockchain global space
+                        </p>
+                        <p class="mt-8">
+                            Strong team of proven Web3 innovators and experts with Devops, QA, Javascript, Rust,
+                            Solidity and a deep understanding of crypto industry
+                        </p>
+                        <p class="mt-8">
+                            Use of the best technical practices, access to the teams of global corporations such as
+                            Microsoft, Google
+                        </p>
+                        <p class="mt-8">
+                            An independent, unbiased approach to solving any customer need in any WEB3-focused industry
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="text-center absolute bottom-4 m-auto left-0 right-0 hidden lg:block">
+            <a href="#services-1-5"
+               class="inline-block rounded-full border border-light-1 border-opacity-20 leading-normal transition duration-150 ease-in-out hover:border-light-0 hover:bg-light-1 hover:bg-opacity-10 focus:border-light-0 focus:outline-none focus:ring-0 active:border-light-0 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                <svg class="w-11 h-11" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 23L30 28L35 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M25 33L30 38L35 33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Section: Services 1/5   -->
+    <section id="services-1-5" class="text-center lg:text-left content-center lg:h-screen relative">
+        <div class="p-6 lg:p-12">
+            <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
+
+                <div class="py-8 lg:mb-0 lg:order-last flex flex-row">
+                    <img class="px-2 w-[15%] mb-auto" src="./img/services-1-5.svg">
+                    <div class="w-[100%] relative mx-2">
+                        <img class="w-[65%] mt-[28%] ml-[32%] slide-left need-animation" src="./img/services-1-5-1.jpg">
+                        <img class="w-[70%] absolute top-0 slide-right need-animation" src="./img/services-1-5-2.jpg">
+                    </div>
+                </div>
+
+                <div class="mb-12 lg:mb-0">
+
+                    <h2 class="text-5xl lg:text-6xl font-['FH_Cordelia_Test'] leading-tight tracking-tight">
+                        Media support
+                    </h2>
+                    <p class="text-lg font-medium text-light-1 my-8 text-left">We bring to life any marketing
+                        initiative, including
+                        content marketing, press releases, editorial media placements, tech PR, crypto PR, success-based
+                        PR, and search engine optimization to propel clients' businesses forward.</p>
+                    <div class="flex flex-col lg:flex-row text-baselg:justify-between lg:items-center text-start">
+
+                        <ul class="list-disc whitespace-nowrap pl-4">
+                            <li class="pt-2">PR campaing</li>
+                            <li class="pt-2">GR campaing</li>
+                            <li class="pt-2">SMM campaing</li>
+                        </ul>
+                        <ul class="list-disc pl-4 lg:pl-20">
+                            <li class="pt-2">SEO+Traffic management+Community</li>
+                            <li class="pt-2">Media campaing (Bloomberg,Forbes, Cointelegraph, etc.)</li>
+                            <li class="pt-2">3D movie and video production</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <span class="lg:text-xs text-light-2 absolute text-center top-0 lg:top-[90%] lg:text-left left-0  right-0 lg:left-12">Services 1/5</span>
+        <div class="text-center absolute bottom-4 m-auto left-0 right-0 hidden lg:block">
+            <a href="#services-2-5"
+               class="inline-block rounded-full border border-light-1 border-opacity-20 leading-normal transition duration-150 ease-in-out hover:border-light-0 hover:bg-light-1 hover:bg-opacity-10 focus:border-light-0 focus:outline-none focus:ring-0 active:border-light-0 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                <svg class="w-11 h-11" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 23L30 28L35 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M25 33L30 38L35 33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Section: Services 2/5   -->
+    <section id="services-2-5" class="text-center lg:text-left content-center lg:h-screen relative">
+        <div class="p-6 lg:p-12">
+            <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
+
+                <div class="py-8 lg:mb-0 lg:order-last flex flex-row">
+                    <img class="px-2 w-[15%] mb-auto" src="./img/services-2-5.svg">
+                    <div class="w-[100%] relative mx-2">
+                        <img class="w-[65%] mt-[28%] flip-in-ver-left  need-animation" src="./img/services-2-5-1.jpg">
+                        <img class="w-[70%] absolute ml-[32%] slide-left top-0 need-animation"
+                             src="./img/services-2-5-2.jpg">
+                    </div>
+                </div>
+
+                <div class="mb-12 lg:mb-0">
+
+                    <h2 class="text-5xl lg:text-6xl font-['FH_Cordelia_Test'] leading-tight tracking-tight">
+                        Consultancy
+                    </h2>
+                    <p class="text-lg font-medium text-light-1 my-8 text-left">We get your company and product utterly
+                        ready for entering the market, providing support service on every step of development.</p>
+
+                    <!-- Dropdown links -->
+                    <ul class="text-left">
+                        <li class="pt-2">
+                            <!-- Dropdown Services-->
+                            <a
+                                    class="flex transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none"
+                                    href="#research-list">
+                                Market research
+                                <span class="ml-1 w-2">
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="h-5 w-5">
+                <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd"/>
+              </svg>
+            </span>
+                            </a>
+                        </li>
+                        <ul id="research-list" class="list-disc pl-8 pt-2 text-light-1 hidden text-sm">
+                            <li>Primary research</li>
+                            <li>Secondary research</li>
+                            <li>Qualitative research</li>
+                            <li>Quantitative research</li>
+                        </ul>
+
+                        <li class="pt-2">
+                            <!-- Dropdown Services-->
+                            <a
+                                    class="flex transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none"
+                                    href="#sgovernance-list">
+                                SGovernance of company
+                                <span class="ml-1 w-2">
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="h-5 w-5">
+                <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd"/>
+              </svg>
+            </span>
+                            </a></li>
+                        <ul id="sgovernance-list" class="list-disc pl-8 pt-2 text-light-1 hidden  text-sm">
+                            <li>Structuring senior management</li>
+                            <li>Support service for improvement of internal controls</li>
+                            <li>Creation of an authority matrix/organization guideline</li>
+                            <li>The Family Constitution and Succession Planning</li>
+                        </ul>
+
+                        <li class="pt-2"><!-- Dropdown Services-->
+                            <a
+                                    class="flex transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none"
+                                    href="#">
+                                Product development
+                                <span class="ml-1 w-2">
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="h-5 w-5">
+                <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd"/>
+              </svg>
+            </span>
+                            </a></li>
+                        <ul id="product-list" class="list-disc pl-8 pt-2 text-light-1 text-sm hidden">
+                            <li>Idea generation</li>
+                            <li>Idea screening</li>
+                            <li>Concept development and testing</li>
+                            <li>Marketing strategy and business analysis</li>
+                            <li>Product development</li>
+                            <li>Test marketing</li>
+                            <li>Product launch</li>
+                        </ul>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+        <span class="lg:text-xs text-light-2 absolute text-center top-0 lg:top-[90%] lg:text-left left-0  right-0 lg:left-12">Services 2/5</span>
+        <div class="text-center absolute bottom-4 m-auto left-0 right-0 hidden lg:block">
+            <a href="#services-3-5"
+               class="inline-block rounded-full border border-light-1 border-opacity-20 leading-normal transition duration-150 ease-in-out hover:border-light-0 hover:bg-light-1 hover:bg-opacity-10 focus:border-light-0 focus:outline-none focus:ring-0 active:border-light-0 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                <svg class="w-11 h-11" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 23L30 28L35 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M25 33L30 38L35 33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Section: Services 3/5   -->
+    <section id="services-3-5" class="text-center lg:text-left content-center lg:h-screen relative">
+        <div class="p-6 lg:p-12">
+            <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
+
+                <div class="py-8 lg:mb-0 lg:order-last flex flex-row">
+                    <img class="px-2 w-[15%] mb-auto" src="./img/services-3-5.svg">
+                    <div class="w-[100%] relative mx-2">
+                        <img class="w-[65%] mt-[28%] ml-[32%] slide-left need-animation" src="./img/services-3-5-1.jpg">
+                        <img class="w-[70%] absolute top-0 slide-right need-animation" src="./img/services-3-5-2.jpg">
+                    </div>
+                </div>
+
+                <div class="mb-12 lg:mb-0">
+
+                    <h2 class="text-5xl lg:text-6xl font-['FH_Cordelia_Test'] leading-tight tracking-tight">
+                        Technical
+                    </h2>
+                    <p class="text-lg font-medium text-light-1 my-8 text-left">We use blockchain and other decentralized
+                        technologies to create a more democratic and fair internet.</p>
+                    <!-- Dropdown links -->
+                    <ul class="text-left">
+                        <li class="pt-2 transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none cursor-pointer flex flex-col"
+                            aria-expanded="false">
+                                    <span class="flex flex-row">Deploying smart contract(SC)
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      data-arrow-ref="#contract-list"
+                      class="h-5 w-5">
+
+                <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd"/>
+              </svg>
+            </span>
+
+                            <!-- Dropdown Services-->
+                            <ul id="contract-list" class="overflow-hidden list-disc pl-8 pt-2 text-light-1 text-sm">
+                                <li>Setup smart contract environment</li>
+                                <li>Setup requirement and practicability of SC</li>
+                                <li>Architecture development of SC</li>
+                                <li>Smart-contract dev</li>
+                                <li>Internal audit of SC</li>
+                                <li>Deployment SC at the blockchain</li>
+                            </ul>
+                        </li>
+
+
+                        <li class="pt-2 transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none cursor-pointer flex flex-col"
+                            aria-expanded="false">
+                                    <span class="flex flex-row">
+                                    Security service
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="h-5 w-5">
+                <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd"/>
+              </svg>
+            </span>
+                            <ul class="overflow-hidden list-disc pl-8 pt-2 text-light-1 text-sm">
+                                <li>Penetration testing (ethical hacking)</li>
+                                <li>Secure source code review</li>
+                                <li>Web application security testing</li>
+                                <li>Mobile application security testing</li>
+                                <li>API security testing</li>
+                                <li>Cybersecurity consulting</li>
+                                <li>Deception Technology</li>
+                            </ul>
+
+                        </li>
+
+                        <li class="pt-2 transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none cursor-pointer flex flex-col"
+                            aria-expanded="false">
+                                    <span class="flex flex-row">
+                                    Decentralized WEB 3.0 site
+              <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="h-5 w-5">
+                <path
+                        fill-rule="evenodd"
+                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                        clip-rule="evenodd"/>
+              </svg>
+            </span>
+                            <ul id="decentralized-list"
+                                class="overflow-hidden list-disc pl-8 pt-2 text-light-1 text-sm">
+                                <li>Blockchain selection</li>
+                                <li>Domain registration</li>
+                                <li>WEB3 corporate email</li>
+                                <li>UI/UX design</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+        <span class="lg:text-xs text-light-2 absolute text-center top-0 lg:top-[90%] lg:text-left left-0  right-0 lg:left-12">Services 3/5</span>
+        <div class="text-center absolute bottom-4 m-auto left-0 right-0 hidden lg:block">
+            <a href="#services-4-5"
+               class="inline-block rounded-full border border-light-1 border-opacity-20 leading-normal transition duration-150 ease-in-out hover:border-light-0 hover:bg-light-1 hover:bg-opacity-10 focus:border-light-0 focus:outline-none focus:ring-0 active:border-light-0 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                <svg class="w-11 h-11" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 23L30 28L35 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M25 33L30 38L35 33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Section: Services 4/5   -->
+    <section id="services-4-5" class="text-center lg:text-left content-center lg:h-screen relative">
+        <div class="p-6 lg:p-12">
+            <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
+
+                <div class="py-8 lg:mb-0 lg:order-last flex flex-row">
+                    <img class="px-2 w-[15%] mb-auto" src="./img/services-4-5.svg">
+                    <div class="w-[100%] relative mx-2">
+                        <img class="w-[65%] mt-[28%] slide-right  need-animation" src="./img/services-4-5-1.jpg">
+                        <img class="w-[70%] absolute ml-[32%] slide-left top-0 need-animation"
+                             src="./img/services-4-5-2.jpg">
+                    </div>
+                </div>
+
+                <div class="mb-12 lg:mb-0">
+
+                    <h2 class="text-5xl lg:text-6xl font-['FH_Cordelia_Test'] leading-tight tracking-tight">
+                        Investment
+                    </h2>
+                    <p class="text-lg font-medium text-light-1 my-8 text-left">We enable to optimize your shareholder
+                        structure and help to attract the right type of investors at home and abroad, conducting a
+                        roadshow and other services.</p>
+                    <div class="flex flex-col lg:flex-row text-baselg:justify-between lg:items-center text-start">
+
+                        <ul class="list-disc whitespace-nowrap pl-4">
+                            <li class="pt-2">Roadshow</li>
+                            <li class="pt-2">meeting with investors</li>
+                            <li class="pt-2">boost and speaking</li>
+                        </ul>
+                        <ul class="list-disc pl-4 lg:pl-20">
+                            <li class="pt-2">Communication flow</li>
+                            <li class="pt-2">inviting to conference</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <span class="lg:text-xs text-light-2 absolute text-center top-0 lg:top-[90%] lg:text-left left-0  right-0 lg:left-12">Services 4/5</span>
+        <div class="text-center absolute bottom-4 m-auto left-0 right-0 hidden lg:block">
+            <a href="#services-5-5"
+               class="inline-block rounded-full border border-light-1 border-opacity-20 leading-normal transition duration-150 ease-in-out hover:border-light-0 hover:bg-light-1 hover:bg-opacity-10 focus:border-light-0 focus:outline-none focus:ring-0 active:border-light-0 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                <svg class="w-11 h-11" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 23L30 28L35 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M25 33L30 38L35 33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Section: Services 5/5   -->
+    <section id="services-5-5" class="text-center lg:text-left content-center lg:h-screen relative">
+        <div class="p-6 lg:p-12">
+            <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
+
+                <div class="py-8 lg:mb-0 lg:order-last flex flex-row">
+                    <img class="px-2 w-[15%] mb-auto" src="./img/services-5-5.svg">
+                    <div class="w-[100%] relative mx-2">
+                        <img class="w-[65%] mt-[28%] ml-[32%] flip-in-ver-right need-animation"
+                             src="./img/services-5-5-1.jpg">
+                        <img class="w-[70%] absolute top-0 slide-right need-animation" src="./img/services-5-5-2.jpg">
+                    </div>
+                </div>
+
+                <div class="mb-12 lg:mb-0">
+
+                    <h2 class="text-5xl lg:text-6xl font-['FH_Cordelia_Test'] leading-tight tracking-tight">
+                        Legal support
+                    </h2>
+                    <p class="text-lg font-medium text-light-1 my-8 text-left">We select the most suitable jurisdiction,
+                        help you obtain all the necessary documents, and also provide legal consultation to facilitate
+                        the entire process.</p>
+                    <div class="flex flex-col lg:flex-row text-baselg:justify-between lg:items-center text-start">
+
+                        <ul class="list-disc whitespace-nowrap pl-4">
+                            <li class="pt-2">Jurisdiction consultancy</li>
+                            <li class="pt-2">incorporation</li>
+                            <li class="pt-2">Company structuring</li>
+                        </ul>
+                        <ul class="list-disc pl-4 lg:pl-20">
+                            <li class="pt-2">Obtaining crypto licenses</li>
+                            <li class="pt-2">Getting IP rights</li>
+                            <li class="pt-2">Legal consultation</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <span class="lg:text-xs text-light-2 absolute text-center top-0 lg:top-[90%] lg:text-left left-0  right-0 lg:left-12">Services 5/5</span>
+        <div class="text-center absolute bottom-4 m-auto left-0 right-0 hidden lg:block">
+            <a href="#price"
+               class="inline-block rounded-full border border-light-1 border-opacity-20 leading-normal transition duration-150 ease-in-out hover:border-light-0 hover:bg-light-1 hover:bg-opacity-10 focus:border-light-0 focus:outline-none focus:ring-0 active:border-light-0 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                <svg class="w-11 h-11" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 23L30 28L35 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M25 33L30 38L35 33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Section: Offers Block -->
+    <section id="price" class="grid grid-cols-1 text-center content-center h-auto lg:h-screen relative">
+        <img class="hidden lg:block absolute -z-10 -left-[35%] h-[80%] top-[10%]" src="img/bg-price-left.png"
+             loading="lazy">
+        <img class="hidden lg:block absolute -z-10 -right-[30%] h-[85%] top-[10%]" src="img/bg-price-right.png"
+             loading="lazy">
+        <h2 class="mb-12 text-5xl lg:text-6xl font-['FH_Cordelia_Test']">Offers</h2>
+
+        <div class="lg:gap-x-4 grid gap-x-8 lg:grid-cols-3 justify-items-center">
+
+            <div
+                    class="block w-full max-w-[18rem] rounded-[20px] bg-dark-2 border border-[#2A2F3A] shadow-[0px 11px 27px 0px rgba(9, 11, 15, 0.10)] mb-12 slide-in-left need-animation">
+                <ul class="w-full">
+                    <li
+                            class="w-full border-b border-[#2A2F3A] py-5 uppercase text-lg">
+                        light pack
+                    </li>
+                    <li
+                            class="py-7">
+                        5+ services
+                    </li>
+                    <hr>
+                    <li
+                            class="w-full py-7 text-2xl">
+                        $18000+
+                    </li>
+                </ul>
+                <div
+                        class="p-4">
+                    <button
+                            type="button"
+                            class="inline-block rounded-full bg-light-1 px-4 py-2 font-medium  leading-normal text-dark-1 transition duration-150 ease-in-out hover:bg-light-0 focus:bg-light-0 focus:outline-none focus:ring-0 active:bg-light-0  hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                        Schedule a call
+                    </button>
+                </div>
+            </div>
+            <div
+                    class="block w-full max-w-[18rem] rounded-[20px] bg-dark-2 border border-[#2A2F3A] shadow-[0px 11px 27px 0px rgba(9, 11, 15, 0.10)] mb-12">
+                <ul class="w-full">
+                    <li
+                            class="w-full border-b border-[#2A2F3A] py-5 uppercase text-lg">
+                        premium pack
+                    </li>
+                    <li
+                            class="py-7">
+                        7+ services
+                    </li>
+                    <hr>
+                    <li
+                            class="w-full py-7 text-2xl">
+                        $25000+
+                    </li>
+                </ul>
+                <div
+                        class="p-4">
+                    <button
+                            type="button"
+                            class="inline-block rounded-full bg-light-1 px-4 py-2 font-medium  leading-normal text-dark-1 transition duration-150 ease-in-out hover:bg-light-0 focus:bg-light-0 focus:outline-none focus:ring-0 active:bg-light-0  hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                        Schedule a call
+                    </button>
+                </div>
+            </div>
+            <div
+                    class="block w-full max-w-[18rem] rounded-[20px] bg-dark-2 border border-[#2A2F3A] shadow-[0px 11px 27px 0px rgba(9, 11, 15, 0.10)] mb-12 slide-in-right need-animation">
+                <ul class="w-full">
+                    <li
+                            class="w-full border-b border-[#2A2F3A] py-5 uppercase text-lg">
+                        diamond pack
+                    </li>
+                    <li
+                            class="py-7">
+                        9+ services
+                    </li>
+                    <hr>
+                    <li
+                            class="w-full py-7 text-2xl">
+                        $35000+
+                    </li>
+                </ul>
+                <div
+                        class="p-4">
+                    <button
+                            type="button"
+                            href="#"
+                            class="inline-block rounded-full bg-light-1 px-4 py-2 font-medium  leading-normal text-dark-1 transition duration-150 ease-in-out hover:bg-light-0 focus:bg-light-0 focus:outline-none focus:ring-0 active:bg-light-0  hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                        Schedule a call
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center absolute bottom-4 m-auto left-0 right-0 hidden lg:block">
+            <a href="#team"
+               class="inline-block rounded-full border border-light-1 border-opacity-20 leading-normal transition duration-150 ease-in-out hover:border-light-0 hover:bg-light-1 hover:bg-opacity-10 focus:border-light-0 focus:outline-none focus:ring-0 active:border-light-0 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                <svg class="w-11 h-11" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 23L30 28L35 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M25 33L30 38L35 33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Section: Team Block -->
+    <section id="team" class="h-auto lg:h-screen grid grid-cols-1 text-center content-center relative">
+        <h2 class="my-12 text-5xl lg:text-6xl font-['FH_Cordelia_Test'] puff-in-center  need-animation">Meet Our
+            Greatest Team</h2>
+
+        <div class="grid gap-x-8 md:gap-16  md:grid-cols-2 lg:grid-cols-4">
+            <div class="mb-12">
+                <div
+                        class="relative rounded-full [background:linear-gradient(#1b1f27,_#1b1f27),_linear-gradient(#edead9,_#edead9),_#444a54] w-[50%] pb-[50%] md:w-[70%] md:pb-[70%] lg:w-[95%] lg:pb-[95%] mb-4 mx-auto border border-[#F8DFB6]"
+                >
+                    <div class="w-[100%] h-[107.3%] rounded-b-full absolute -top-[7%] overflow-hidden">
+                        <img src="img/avatar-1.png" loading="lazy">
+                    </div>
+
+                </div>
+                <h5 class="mb-2 text-base font-bold">Zeynep Dudley</h5>
+                <h6 class="mb-4 text-sm text-light-1">
+                    Co-founder
+                </h6>
+            </div>
+
+            <div class="mb-12">
+                <div
+                        class="relative rounded-full [background:linear-gradient(#1b1f27,_#1b1f27),_linear-gradient(#edead9,_#edead9),_#444a54] w-[50%] pb-[50%] md:w-[70%] md:pb-[70%] lg:w-[95%] lg:pb-[95%] mb-4 mx-auto border border-[#F8DFB6]"
+                >
+                    <div class="w-[100%] h-[107.3%] rounded-b-full absolute -top-[7%] overflow-hidden">
+                        <img src="img/avatar-2.png" loading="lazy">
+                    </div>
+
+                </div>
+                <h5 class="mb-2 text-base font-bold">Darren Randolph</h5>
+                <h6 class="mb-4 text-sm text-light-1">
+                    Co-founder
+                </h6>
+            </div>
+
+            <div class="mb-12">
+                <div
+                        class="relative rounded-full [background:linear-gradient(#1b1f27,_#1b1f27),_linear-gradient(#edead9,_#edead9),_#444a54] w-[50%] pb-[50%] md:w-[70%] md:pb-[70%] lg:w-[95%] lg:pb-[95%] mb-4 mx-auto border border-[#F8DFB6]"
+                >
+                    <div class="w-[100%] h-[107.3%] rounded-b-full absolute -top-[7%] overflow-hidden">
+                        <img src="img/avatar-3.png" loading="lazy">
+                    </div>
+
+                </div>
+                <h5 class="mb-2 text-base font-bold">Takeshi Kitano</h5>
+                <h6 class="mb-4 text-sm text-light-1">
+                    SEO expert
+                </h6>
+            </div>
+            <div class="mb-12">
+                <div
+                        class="relative rounded-full [background:linear-gradient(#1b1f27,_#1b1f27),_linear-gradient(#edead9,_#edead9),_#444a54] w-[50%] pb-[50%] md:w-[70%] md:pb-[70%] lg:w-[95%] lg:pb-[95%] mb-4 mx-auto border border-[#F8DFB6]"
+                >
+                    <div class="w-[100%] h-[107.3%] rounded-b-full absolute -top-[7%] overflow-hidden">
+                        <img src="img/avatar-4.png" loading="lazy">
+                    </div>
+
+                </div>
+                <h5 class="mb-2 text-base font-bold">Ayat Hanyu</h5>
+                <h6 class="mb-4 text-sm text-light-1">
+                    Marketing expert
+                </h6>
+            </div>
+        </div>
+        <div class="text-center absolute bottom-4 m-auto left-0 right-0 hidden lg:block">
+            <a href="#last"
+               class="inline-block rounded-full border border-light-1 border-opacity-20 leading-normal transition duration-150 ease-in-out hover:border-light-0 hover:bg-light-1 hover:bg-opacity-10 focus:border-light-0 focus:outline-none focus:ring-0 active:border-light-0 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                <svg class="w-11 h-11" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25 23L30 28L35 23" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M25 33L30 38L35 33" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Section: Get in touch(last)   -->
+    <section id="last" class="text-center lg:text-left lg:h-screen relative">
+        <div class="px-8 lg:pt-16">
+            <div class="grid items-center lg:grid-cols-2 lg:gap-x-12 content-end">
+
+                <div class="p-5  lg:mb-0 bg-contain bg-no-repeat bg-center rounded-b-full overflow-hidden slide-in-left need-animation lg:order-last">
+                    <img src="./img/bg-last-screen.png" loading="lazy">
+                </div>
+
+                <div class="mb-12 lg:mb-0">
+
+                    <h2 class="mb-1 text-5xl  font-['FH_Cordelia_Test'] leading-tight tracking-tight">
+                        Ready to work together?
+                    </h2>
+                    <p class="lg:text-lg text-light-1">Fill in our questionnaire or book a meeting</p>
+                    <div
+                            class="mt-10 flex flex-col lg:flex-row items-center">
+                        <button
+                                type="button"
+                                class="min-w-[50%] lg:w-auto mb-6 lg:mb-0 lg:mr-3 flex justify-center rounded-full bg-light-1 px-4 py-2 font-medium  leading-normal text-dark-1 transition duration-150 ease-in-out hover:bg-light-0 focus:bg-light-0 focus:outline-none focus:ring-0 active:bg-light-0  hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                            Questionnaire
+
+                            <span class="pl-2 py-1">                            <svg width="15" height="15"
+                                                                                     viewBox="0 0 23 23" fill="none"
+                                                                                     xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.33343 3.91683C9.02379 3.91683 9.58343 3.35719 9.58343 2.66683C9.58343 1.97647 9.02379 1.41683 8.33343 1.41683V3.91683ZM21.5832 14.6668C21.5832 13.9765 21.0235 13.4168 20.3332 13.4168C19.6428 13.4168 19.0832 13.9765 19.0832 14.6668H21.5832ZM18.8769 21.0428L18.3094 19.929L18.8769 21.0428ZM20.0428 19.8775L18.929 19.31L20.0428 19.8775ZM1.95715 19.8775L0.843395 20.445L1.95715 19.8775ZM3.12223 21.0428L3.68972 19.929H3.68972L3.12223 21.0428ZM3.12223 2.95748L3.68972 4.07124L3.12223 2.95748ZM1.95715 4.12288L3.07091 4.69037L1.95715 4.12288ZM20.4165 8.00016C20.4165 8.69052 20.9761 9.25016 21.6665 9.25016C22.3569 9.25016 22.9165 8.69052 22.9165 8.00016H20.4165ZM21.6665 1.3335H22.9165C22.9165 0.64314 22.3569 0.0834961 21.6665 0.0834961V1.3335ZM14.9998 0.0834961C14.3095 0.0834961 13.7498 0.64314 13.7498 1.3335C13.7498 2.02385 14.3095 2.5835 14.9998 2.5835V0.0834961ZM11.4493 9.78295C10.9611 10.2711 10.9611 11.0626 11.4493 11.5507C11.9374 12.0389 12.7289 12.0389 13.2171 11.5507L11.4493 9.78295ZM8.33343 1.41683H5.93343V3.91683H8.33343V1.41683ZM0.416504 6.93343V17.0668H2.9165V6.93343H0.416504ZM5.93343 22.5835H16.0668V20.0835H5.93343V22.5835ZM21.5832 17.0668V14.6668H19.0832V17.0668H21.5832ZM16.0668 22.5835C16.7929 22.5835 17.4125 22.5845 17.9198 22.543C18.4418 22.5003 18.9537 22.4066 19.4444 22.1566L18.3094 19.929C18.2297 19.9697 18.0833 20.0213 17.7161 20.0513C17.3343 20.0825 16.8341 20.0835 16.0668 20.0835V22.5835ZM19.0832 17.0668C19.0832 17.8343 19.0823 18.3347 19.0511 18.7167C19.0212 19.0842 18.9695 19.2306 18.929 19.31L21.1566 20.445C21.4067 19.9541 21.5003 19.4418 21.5428 18.9199C21.5842 18.4126 21.5832 17.7928 21.5832 17.0668H19.0832ZM19.4444 22.1566C20.1807 21.7814 20.7807 21.1826 21.1566 20.445L18.929 19.31C18.7936 19.576 18.5766 19.7929 18.3094 19.929L19.4444 22.1566ZM0.416504 17.0668C0.416504 17.7929 0.415532 18.4127 0.456986 18.9201C0.49963 19.4421 0.593311 19.9542 0.843395 20.445L3.07091 19.31C3.03035 19.2304 2.9787 19.0839 2.94868 18.7165C2.91748 18.3345 2.9165 17.8341 2.9165 17.0668H0.416504ZM5.93343 20.0835C5.1661 20.0835 4.66559 20.0825 4.28348 20.0513C3.91588 20.0213 3.7693 19.9696 3.68972 19.929L2.55474 22.1566C3.0456 22.4067 3.55788 22.5003 4.0799 22.543C4.58742 22.5845 5.20729 22.5835 5.93343 22.5835V20.0835ZM0.843395 20.445C1.2188 21.1818 1.81759 21.781 2.55475 22.1566L3.68972 19.929C3.42335 19.7933 3.20683 19.5768 3.07091 19.31L0.843395 20.445ZM5.93343 1.41683C5.20731 1.41683 4.58743 1.41586 4.07993 1.45731C3.55792 1.49995 3.04562 1.59361 2.55474 1.84372L3.68972 4.07124C3.76928 4.0307 3.91584 3.97904 4.28345 3.94901C4.66557 3.9178 5.16608 3.91683 5.93343 3.91683V1.41683ZM2.9165 6.93343C2.9165 6.16607 2.91748 5.66575 2.94868 5.28381C2.9787 4.91648 3.03033 4.77002 3.07091 4.69037L0.843395 3.5554C0.593326 4.04618 0.499636 4.55825 0.456987 5.08022C0.415532 5.58758 0.416504 6.20732 0.416504 6.93343H2.9165ZM2.55474 1.84372C1.81745 2.21939 1.21873 2.81875 0.843395 3.5554L3.07091 4.69037C3.2069 4.42349 3.42348 4.20689 3.68972 4.07124L2.55474 1.84372ZM22.9165 8.00016V1.3335H20.4165V8.00016H22.9165ZM21.6665 0.0834961H14.9998V2.5835H21.6665V0.0834961ZM13.2171 11.5507L22.5504 2.21738L20.7826 0.449613L11.4493 9.78295L13.2171 11.5507Z"
+                                      fill="#191A1E"/>
+                            </svg></span>
+                        </button>
+                        <button
+                                type="button"
+                                class="min-w-[50%] lg:w-auto inline-block rounded-full bg-light-1 px-4 py-2 font-medium  leading-normal text-dark-1 transition duration-150 ease-in-out hover:bg-light-0 focus:bg-light-0 focus:outline-none focus:ring-0 active:bg-light-0  hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
+                            Book a meeting
+                        </button>
+
+                    </div>
+
+                    <ul
+                            class="mt-10 list-style-none text-light-1">
+                        <!-- Phone -->
+                        <li
+                                class="mt-4 pl-2 text-2xl">
+                            +123-456-7890
+                        </li>                <!-- Email -->
+                        <li
+                                class=" pl-2 text-sm font-medium">
+                            hello@reallygreatsite.com
+                        </li>
+                        <!-- Social links -->
+                        <li
+                                class="my-6">
+                            <div class="flex flex-row items-center justify-center lg:justify-start">
+                                <a href="#" class="pr-3">
+                                    <svg class="fill-light-1 transition duration-150 ease-in-out hover:fill-light-0 active:fill-light-0 focus:bg-light-0"
+                                         xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 29 30"
+                                         fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M14.4297 3.67615C17.3832 3.67615 17.7536 3.68902 18.9135 3.74385C20.071 3.79854 20.8615 3.98869 21.5532 4.26676C22.2684 4.55424 22.8748 4.93892 23.4794 5.56435C24.084 6.18977 24.4559 6.81721 24.7338 7.55699C25.0027 8.2726 25.1865 9.09039 25.2393 10.2878C25.2922 11.4877 25.3047 11.8708 25.3047 14.9261C25.3047 17.9815 25.2922 18.3646 25.2393 19.5645C25.1865 20.7619 25.0027 21.5797 24.7338 22.2953C24.4559 23.0351 24.084 23.6625 23.4794 24.2879C22.8748 24.9134 22.2684 25.298 21.5532 25.5855C20.8615 25.8636 20.071 26.0538 18.9135 26.1084C17.7536 26.1632 17.3832 26.1761 14.4297 26.1761C11.4762 26.1761 11.1059 26.1632 9.94596 26.1084C8.78838 26.0538 7.99785 25.8636 7.30619 25.5855C6.59102 25.298 5.98453 24.9134 5.37995 24.2879C4.77538 23.6625 4.40352 23.0351 4.12566 22.2953C3.85671 21.5797 3.67291 20.7619 3.62014 19.5645C3.56718 18.3646 3.55469 17.9815 3.55469 14.9261C3.55469 11.8708 3.56718 11.4877 3.62014 10.2878C3.67291 9.09039 3.85671 8.2726 4.12566 7.55699C4.40352 6.81721 4.77538 6.18977 5.37995 5.56435C5.98453 4.93892 6.59102 4.55424 7.30619 4.26676C7.99785 3.98869 8.78838 3.79854 9.94596 3.74385C11.1059 3.68902 11.4762 3.67615 14.4297 3.67615ZM14.4297 9.14912C11.3455 9.14912 8.84525 11.7356 8.84525 14.9261C8.84525 18.1167 11.3455 20.7031 14.4297 20.7031C17.5139 20.7031 20.0141 18.1167 20.0141 14.9261C20.0141 11.7356 17.5139 9.14912 14.4297 9.14912ZM14.4297 18.6761C12.4277 18.6761 10.8047 16.9972 10.8047 14.9261C10.8047 12.8551 12.4277 11.1761 14.4297 11.1761C16.4318 11.1761 18.0547 12.8551 18.0547 14.9261C18.0547 16.9972 16.4318 18.6761 14.4297 18.6761ZM21.5398 8.92085C21.5398 8.17526 20.9556 7.57084 20.2348 7.57084C19.5141 7.57084 18.9298 8.17526 18.9298 8.92085C18.9298 9.6664 19.5141 10.2709 20.2348 10.2709C20.9556 10.2709 21.5398 9.6664 21.5398 8.92085Z"
+                                        />
+                                    </svg>
+                                </a>
+                                <a href="#" class="px-3">
+                                    <svg class="fill-light-1 transition duration-150 ease-in-out transition duration-150 ease-in-out  hover:fill-light-0 active:fill-light-0"
+                                         xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
+                                         fill="none">
+                                        <path d="M29.1694 9.00895C29.1694 9.00895 28.8854 6.91987 28.0185 6.00194C26.9191 4.79597 25.6867 4.78964 25.1219 4.72001C21.0744 4.41297 14.9971 4.45096 14.9971 4.45096C14.9971 4.45096 8.9198 4.41297 4.8723 4.72001C4.30747 4.78964 3.07509 4.79597 1.97563 6.00194C1.10874 6.91987 0.824808 9.00895 0.824808 9.00895C0.824808 9.00895 0.534838 11.4589 0.480469 13.912V16.2099C0.534838 18.663 0.824808 21.113 0.824808 21.113C0.824808 21.113 1.10572 23.202 1.97563 24.12C3.07509 25.3259 4.52192 25.2879 5.16529 25.4146C7.43974 25.6425 14.7403 25.6963 14.9941 25.6994C14.9971 25.6994 21.0774 25.7089 25.1249 25.4019C25.6897 25.3323 26.9221 25.3259 28.0216 24.12C28.8884 23.202 29.1724 21.113 29.1724 21.113C29.1724 21.113 29.4623 18.6599 29.4805 16.2099V13.912C29.4593 11.4589 29.1694 9.00895 29.1694 9.00895ZM12.043 19.3182V10.772L19.8178 15.0451L12.043 19.3182Z"
+                                        />
+                                    </svg>
+                                </a>
+                                <a href="#" class="px-3">
+                                    <svg class="fill-light-1 transition duration-150 ease-in-out hover:fill-light-0 active:fill-light-0"
+                                         xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 30 29"
+                                         fill="none">
+                                        <path d="M0.939357 0.905884L12.1359 15.8768L0.868652 28.0487H3.40446L13.2689 17.392L21.2392 28.0487H29.8687L18.0421 12.2358L28.5296 0.905884H25.9938L16.9091 10.7205L9.56883 0.905884H0.939357ZM4.66846 2.77377H8.63286L26.139 26.1805H22.1746L4.66846 2.77377Z"
+                                        />
+                                    </svg>
+                                    </svg>
+                                </a>
+                                <a href="#" class="px-3">
+                                    <svg class="fill-light-1 transition duration-150 ease-in-out hover:fill-light-0 active:fill-light-0"
+                                         xmlns="http://www.w3.org/2000/svg" width="29" height="25" viewBox="0 0 29 25"
+                                         fill="none">
+                                        <path d="M11.5289 16.4306L11.072 23.0784C11.7257 23.0784 12.0088 22.7879 12.3483 22.4391L15.4129 19.4093L21.7631 24.2201C22.9278 24.8915 23.7483 24.538 24.0625 23.1117L28.2308 2.90649L28.2319 2.9053C28.6013 1.1243 27.6093 0.427859 26.4746 0.864774L1.97363 10.5686C0.301483 11.24 0.326801 12.2043 1.68937 12.6412L7.95329 14.6568L22.5031 5.23869C23.1879 4.76963 23.8105 5.02916 23.2983 5.49822L11.5289 16.4306Z"
+                                        />
+                                    </svg>
+                                </a>
+                            </div>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="text-center lg:text-left m-auto left-0 right-0 absolute bottom-4 m-auto left-5">
+            <span class="text-xs block mb-2 text-light-2">Copyright ©2023 diamond-capital</span>
+        </div>
+
+    </section>
+
+
+</div>
+<script>
+    const expanded = (el) => {
+        document.querySelectorAll('[aria-expanded="true"]').forEach(item => {
+            item.ariaExpanded = 'false';
+        })
+        el.ariaExpanded = 'true';
+    }
+    document.body.addEventListener('click', (e) => {
+        if (e.target.closest('[aria-expanded]')) {
+            const li = e.target.closest('[aria-expanded]')
+            li.ariaExpanded === 'false' ? expanded(li)
+                : li.ariaExpanded = 'false';
+        }
+    })
+
+    window.onload = () => {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.id !== 'preload') {
+                    entry.target.classList.add('scroll-animation');
+                    observer.unobserve(entry.target);
+                } else if (entry.isIntersecting && entry.target.id === 'preload') {
+                    document.querySelector('body').classList.replace('overflow-scroll', 'overflow-hidden');
+                    document.querySelector('object').data = 'img/animate.svg';
+                    observer.unobserve(entry.target);
+                } else if (!entry.isIntersecting && entry.target.id === 'preload') {
+                    entry.target.classList.add('hidden');
+                    observer.unobserve(entry.target);
+                }
+            })
+        }, {threshold: 0.5})
+
+        document.querySelectorAll('.need-animation').forEach(img => observer.observe(img))
+    }
+    document.getElementById('hide-preload').addEventListener('click', () => {
+        document.body.classList.replace('overflow-hidden', 'overflow-scroll');
+        document.getElementById('preload').classList.add('hidden');
+    })
+    console.log(document.getAnimations())
+
+</script>
+</body>
+</html>
