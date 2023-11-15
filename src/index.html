@@ -11,352 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Merriweather+Sans:wght@700&family=Quicksand:wght@500;700&display=swap"
           rel="stylesheet">
-    <style>
-        html {
-            font-family: 'Quicksand', sans-serif;
-        }
 
-        .but {
-            animation: fade-in 1.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) 3.5s both;
-        }
-
-        @keyframes fade-in {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @font-face {
-            font-family: 'FH Cordelia Test';
-            src: url("./font/FHCordeliaTest-Regular.woff2");
-            src: url("./font/FHCordeliaTest-Regular.otf");
-            src: url("./font/FHCordeliaTest-Regular.ttf");
-        }
-
-        hr {
-            background-image: linear-gradient(90deg, transparent, #2A2F3A, transparent);
-            border: 0;
-            height: 1px;
-        }
-
-        .hr {
-            /*border-image: linear-gradient(90deg,transparent,#2A2F3A,transparent);*/
-            border-image: linear-gradient(90deg, transparent, #fff, transparent);
-            border-bottom: 13px solid;;
-        }
-
-
-        [aria-expanded="false"] ul {
-            max-height: 0;
-            transition: max-height 0.3s ease-in-out;
-            /*overflow: hidden;*/
-        }
-
-        [aria-expanded="true"] ul {
-            max-height: 300px;
-            transition: max-height 0.6s ease-in-out;
-        }
-
-
-        [aria-expanded="true"] svg {
-            transition: rotate 0.8s ease-in-out;
-            transform: rotate(180deg);
-            -webkit-transform: rotate(180deg);
-        }
-
-        [aria-expanded="false"] svg {
-            transition: rotate 0.6s ease-in-out;
-            transform: rotate(0deg);
-            -webkit-transform: rotate(0deg);
-        }
-
-        .slide-in-right,
-        .slide-in-left,
-        .puff-in-center,
-        .slide-left,
-        .slide-right {
-            visibility: hidden;
-        }
-
-        .scroll-animation.flip-in-ver-right {
-            -webkit-animation: flip-in-ver-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            animation: flip-in-ver-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        }
-
-        .scroll-animation.flip-in-ver-left {
-            -webkit-animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            animation: flip-in-ver-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        }
-
-        .scroll-animation.slide-in-left {
-            visibility: visible;
-            -webkit-animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        }
-
-        .scroll-animation.slide-left {
-            visibility: visible;
-            -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        }
-
-        .scroll-animation.slide-right {
-            visibility: visible;
-            -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        }
-
-
-        /**
-         * ----------------------------------------
-         * animation flip-in-ver-right
-         * ----------------------------------------
-         */
-        @-webkit-keyframes flip-in-ver-right {
-            0% {
-                -webkit-transform: rotateY(-80deg);
-                transform: rotateY(-80deg);
-                opacity: 0;
-            }
-            100% {
-                -webkit-transform: rotateY(0);
-                transform: rotateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes flip-in-ver-right {
-            0% {
-                -webkit-transform: rotateY(-80deg);
-                transform: rotateY(-80deg);
-                opacity: 0;
-            }
-            100% {
-                -webkit-transform: rotateY(0);
-                transform: rotateY(0);
-                opacity: 1;
-            }
-        }
-
-        /**
- * ----------------------------------------
- * animation flip-in-ver-left
- * ----------------------------------------
- */
-        @-webkit-keyframes flip-in-ver-left {
-            0% {
-                -webkit-transform: rotateY(80deg);
-                transform: rotateY(80deg);
-                opacity: 0;
-            }
-            100% {
-                -webkit-transform: rotateY(0);
-                transform: rotateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes flip-in-ver-left {
-            0% {
-                -webkit-transform: rotateY(80deg);
-                transform: rotateY(80deg);
-                opacity: 0;
-            }
-            100% {
-                -webkit-transform: rotateY(0);
-                transform: rotateY(0);
-                opacity: 1;
-            }
-        }
-
-        /**
- * ----------------------------------------
- * animation slide-left
- * ----------------------------------------
- */
-        @-webkit-keyframes slide-left {
-            0% {
-                -webkit-transform: translateX(-50%);
-                transform: translateX(-50%);
-            }
-            100% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slide-left {
-            0% {
-                -webkit-transform: translateX(-50%);
-                transform: translateX(-50%);
-            }
-            100% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-            }
-        }
-
-        /**
- * ----------------------------------------
- * animation slide-right
- * ----------------------------------------
- */
-        @-webkit-keyframes slide-right {
-            0% {
-                -webkit-transform: translateX(50%);
-                transform: translateX(50%);
-            }
-            100% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slide-right {
-            0% {
-                -webkit-transform: translateX(50%);
-                transform: translateX(50%);
-            }
-            100% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-            }
-        }
-
-
-        .vertical-text {
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-        }
-
-        /**
-* ----------------------------------------
-* animation slide-in-left
-* ----------------------------------------
-*/
-
-        @-webkit-keyframes slide-in-left {
-            0% {
-                -webkit-transform: translateX(-1000px);
-                transform: translateX(-1000px);
-                opacity: 0;
-            }
-            100% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slide-in-left {
-            0% {
-                -webkit-transform: translateX(-1000px);
-                transform: translateX(-1000px);
-                opacity: 0;
-            }
-            100% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .scroll-animation.slide-in-right {
-            visibility: visible;
-            -webkit-animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-            animation: slide-in-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        }
-
-        /**
- * ----------------------------------------
- * animation slide-in-right
- * ----------------------------------------
- */
-        @-webkit-keyframes slide-in-right {
-            0% {
-                -webkit-transform: translateX(1000px);
-                transform: translateX(1000px);
-                opacity: 0;
-            }
-            100% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slide-in-right {
-            0% {
-                -webkit-transform: translateX(1000px);
-                transform: translateX(1000px);
-                opacity: 0;
-            }
-            100% {
-                -webkit-transform: translateX(0);
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .scroll-animation.puff-in-center {
-            visibility: visible;
-            -webkit-animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-            animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
-        }
-
-        /**
- * ----------------------------------------
- * animation puff-in-center
- * ----------------------------------------
- */
-        @-webkit-keyframes puff-in-center {
-            0% {
-                -webkit-transform: scale(2);
-                transform: scale(2);
-                -webkit-filter: blur(4px);
-                filter: blur(4px);
-                opacity: 0;
-            }
-            100% {
-                -webkit-transform: scale(1);
-                transform: scale(1);
-                -webkit-filter: blur(0px);
-                filter: blur(0px);
-                opacity: 1;
-            }
-        }
-
-        @keyframes puff-in-center {
-            0% {
-                -webkit-transform: scale(2);
-                transform: scale(2);
-                -webkit-filter: blur(4px);
-                filter: blur(4px);
-                opacity: 0;
-            }
-            100% {
-                -webkit-transform: scale(1);
-                transform: scale(1);
-                -webkit-filter: blur(0px);
-                filter: blur(0px);
-                opacity: 1;
-            }
-        }
-
-
-    </style>
 </head>
-<!--<body class="lg:overflow-hidden overflow-hidden h-screen">-->
 <body class="h-screen bg-dark-0 text-light-0 lg:overflow-hidden">
-<!-- Main navigation container -->
 <nav
         class="fixed z-10 flex w-full flex-nowrap items-center justify-between bg-dark-0 py-2 shadow-lg container mx-auto">
     <div class="flex w-full flex-wrap items-center justify-between px-3">
         <div class="ml-2">
-            <!--    Logo        -->
             <a
                     class="mb-4 ml-2 mr-5 mt-3 flex items-center lg:mb-0 lg:mt-0 "
                     href="#">
@@ -371,12 +32,10 @@
                 </svg>
             </a>
         </div>
-        <!-- Hamburger button for mobile view -->
         <button
                 class="block border-0 bg-transparent px-2  hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 lg:hidden"
                 type="button"
                 aria-label="Toggle navigation">
-            <!-- Hamburger icon -->
             <span class="[&>svg]:w-7">
         <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -390,15 +49,11 @@
         </svg>
       </span>
         </button>
-
-        <!-- Collapsible navbar container -->
         <div
                 class="hidden  mt-2 lg:pr-2 basis-[100%] items-center lg:mt-0 lg:!flex lg:basis-auto"
                 id="navbarSupportedContent14">
-            <!-- Right links -->
             <ul
                     class="list-style-none text-center mr-auto flex flex-col pl-0 lg:mt-1 lg:flex-row font-bold items-center">
-                <!-- Why us link -->
                 <li
                         class="my-5 pl-2 lg:my-0 lg:pr-4">
                     <a
@@ -407,10 +62,8 @@
                             href="#why"
                     >Why us</a>
                 </li>
-                <!-- Dropdown link -->
                 <li
                         class="my-5 pl-2 lg:my-0 lg:pr-5">
-                    <!-- Dropdown Services-->
                     <a
                             class="flex items-center justify-center transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none"
                             href="#"
@@ -464,7 +117,6 @@
 
                     </ul>
                 </li>
-                <!-- Price link -->
                 <li
                         class="my-5 pl-2 lg:my-0 lg:pr-4">
                     <a
@@ -473,7 +125,6 @@
                             href="#price"
                     >Price</a>
                 </li>
-                <!-- Team link -->
                 <li
                         class="my-5 pl-2 lg:my-0 lg:pr-4">
                     <a
@@ -482,7 +133,6 @@
                             href="#team"
                     >Team</a>
                 </li>
-                <!-- Get in touch link -->
                 <li
                         class="my-5 pl-2 lg:hidden">
                     <a
@@ -491,8 +141,6 @@
                             href="#"
                     >Get in touch</a>
                 </li>
-
-                <!-- Get in touch button -->
                 <li
                         class="pl-2 lg:my-0 lg:pr-2 hidden lg:!flex">
                     <a
@@ -522,7 +170,6 @@
                         </linearGradient>
                     </defs>
                 </svg>
-                <!-- Phone -->
                 <li
                         class="my-4 pl-2 lg:my-0 lg:pl-4 lg:pr-2 text-2xl">
                     +123-456-7890
@@ -531,7 +178,6 @@
                         class="my-4 pl-2 lg:my-0 lg:pl-4 lg:pr-2 text-base font-medium">
                     hello@reallygreatsite.com
                 </li>
-                <!-- Social links -->
                 <li
                         class="my-4 pl-2">
                     <div class="flex flex-row items-center">
@@ -572,7 +218,6 @@
                     </div>
 
                 </li>
-                <!-- Copyright -->
                 <li
                         class="my-4 pl-2 lg:my-0 lg:pl-4 lg:pr-2 text-base font-medium text-light-1">
                     Copyright ©2023 diamond-capital
@@ -601,7 +246,6 @@
 
 </section>
 <div id="main" class="container pt-12 mx-auto lg:px-6">
-    <!-- Section: First Screen   -->
     <section id="first" class="text-center lg:text-left content-center lg:h-main relative">
         <div class="p-6 lg:p-12">
             <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
@@ -638,8 +282,6 @@
 
         </div>
     </section>
-
-    <!-- Section: Why Us   -->
     <section id="why" class="text-center lg:text-left lg:h-screen relative">
         <div class="px-6 lg:pt-16">
             <div class="grid items-center lg:grid-cols-2 lg:gap-x-12 content-end">
@@ -694,8 +336,6 @@
         </div>
 
     </section>
-
-    <!-- Section: Services 1/5   -->
     <section id="services-1-5" class="text-center lg:text-left content-center lg:h-screen relative">
         <div class="p-6 lg:p-12">
             <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
@@ -746,12 +386,9 @@
             </a>
         </div>
     </section>
-
-    <!-- Section: Services 2/5   -->
     <section id="services-2-5" class="text-center lg:text-left content-center lg:h-screen relative">
         <div class="p-6 lg:p-12">
             <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
-
                 <div class="py-8 lg:mb-0 lg:order-last flex flex-row">
                     <img class="px-2 w-[15%] mb-auto" src="./img/services-2-5.svg">
                     <div class="w-[100%] relative mx-2">
@@ -760,19 +397,14 @@
                              src="./img/services-2-5-2.jpg">
                     </div>
                 </div>
-
                 <div class="mb-12 lg:mb-0">
-
                     <h2 class="text-5xl lg:text-6xl font-['FH_Cordelia_Test'] leading-tight tracking-tight">
                         Consultancy
                     </h2>
                     <p class="text-lg font-medium text-light-1 my-8 text-left">We get your company and product utterly
                         ready for entering the market, providing support service on every step of development.</p>
-
-                    <!-- Dropdown links -->
                     <ul class="text-left">
                         <li class="pt-2">
-                            <!-- Dropdown Services-->
                             <a
                                     class="flex transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none"
                                     href="#research-list">
@@ -799,7 +431,6 @@
                         </ul>
 
                         <li class="pt-2">
-                            <!-- Dropdown Services-->
                             <a
                                     class="flex transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none"
                                     href="#sgovernance-list">
@@ -824,7 +455,7 @@
                             <li>The Family Constitution and Succession Planning</li>
                         </ul>
 
-                        <li class="pt-2"><!-- Dropdown Services-->
+                        <li class="pt-2">
                             <a
                                     class="flex transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none"
                                     href="#">
@@ -852,9 +483,7 @@
                             <li>Product launch</li>
                         </ul>
                     </ul>
-
                 </div>
-
             </div>
         </div>
         <span class="lg:text-xs text-light-2 absolute text-center top-0 lg:top-[90%] lg:text-left left-0  right-0 lg:left-12">Services 2/5</span>
@@ -868,8 +497,6 @@
             </a>
         </div>
     </section>
-
-    <!-- Section: Services 3/5   -->
     <section id="services-3-5" class="text-center lg:text-left content-center lg:h-screen relative">
         <div class="p-6 lg:p-12">
             <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
@@ -889,7 +516,6 @@
                     </h2>
                     <p class="text-lg font-medium text-light-1 my-8 text-left">We use blockchain and other decentralized
                         technologies to create a more democratic and fair internet.</p>
-                    <!-- Dropdown links -->
                     <ul class="text-left">
                         <li class="pt-2 transition duration-200 hover:text-light-1 hover:ease-in-out focus:text-light-1 motion-reduce:transition-none cursor-pointer flex flex-col"
                             aria-expanded="false">
@@ -907,8 +533,6 @@
                         clip-rule="evenodd"/>
               </svg>
             </span>
-
-                            <!-- Dropdown Services-->
                             <ul id="contract-list" class="overflow-hidden list-disc pl-8 pt-2 text-light-1 text-sm">
                                 <li>Setup smart contract environment</li>
                                 <li>Setup requirement and practicability of SC</li>
@@ -971,9 +595,7 @@
                             </ul>
                         </li>
                     </ul>
-
                 </div>
-
             </div>
         </div>
         <span class="lg:text-xs text-light-2 absolute text-center top-0 lg:top-[90%] lg:text-left left-0  right-0 lg:left-12">Services 3/5</span>
@@ -987,12 +609,9 @@
             </a>
         </div>
     </section>
-
-    <!-- Section: Services 4/5   -->
     <section id="services-4-5" class="text-center lg:text-left content-center lg:h-screen relative">
         <div class="p-6 lg:p-12">
             <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
-
                 <div class="py-8 lg:mb-0 lg:order-last flex flex-row">
                     <img class="px-2 w-[15%] mb-auto" src="./img/services-4-5.svg">
                     <div class="w-[100%] relative mx-2">
@@ -1001,9 +620,7 @@
                              src="./img/services-4-5-2.jpg">
                     </div>
                 </div>
-
                 <div class="mb-12 lg:mb-0">
-
                     <h2 class="text-5xl lg:text-6xl font-['FH_Cordelia_Test'] leading-tight tracking-tight">
                         Investment
                     </h2>
@@ -1022,9 +639,7 @@
                             <li class="pt-2">inviting to conference</li>
                         </ul>
                     </div>
-
                 </div>
-
             </div>
         </div>
         <span class="lg:text-xs text-light-2 absolute text-center top-0 lg:top-[90%] lg:text-left left-0  right-0 lg:left-12">Services 4/5</span>
@@ -1038,8 +653,6 @@
             </a>
         </div>
     </section>
-
-    <!-- Section: Services 5/5   -->
     <section id="services-5-5" class="text-center lg:text-left content-center lg:h-screen relative">
         <div class="p-6 lg:p-12">
             <div class="grid items-center lg:grid-cols-2 lg:gap-x-12">
@@ -1052,9 +665,7 @@
                         <img class="w-[70%] absolute top-0 slide-right need-animation" src="./img/services-5-5-2.jpg">
                     </div>
                 </div>
-
                 <div class="mb-12 lg:mb-0">
-
                     <h2 class="text-5xl lg:text-6xl font-['FH_Cordelia_Test'] leading-tight tracking-tight">
                         Legal support
                     </h2>
@@ -1062,7 +673,6 @@
                         help you obtain all the necessary documents, and also provide legal consultation to facilitate
                         the entire process.</p>
                     <div class="flex flex-col lg:flex-row text-baselg:justify-between lg:items-center text-start">
-
                         <ul class="list-disc whitespace-nowrap pl-4">
                             <li class="pt-2">Jurisdiction consultancy</li>
                             <li class="pt-2">incorporation</li>
@@ -1074,9 +684,7 @@
                             <li class="pt-2">Legal consultation</li>
                         </ul>
                     </div>
-
                 </div>
-
             </div>
         </div>
         <span class="lg:text-xs text-light-2 absolute text-center top-0 lg:top-[90%] lg:text-left left-0  right-0 lg:left-12">Services 5/5</span>
@@ -1090,17 +698,13 @@
             </a>
         </div>
     </section>
-
-    <!-- Section: Offers Block -->
     <section id="price" class="grid grid-cols-1 text-center content-center h-auto lg:h-screen relative">
         <img class="hidden lg:block absolute -z-10 -left-[35%] h-[80%] top-[10%]" src="img/bg-price-left.png"
              loading="lazy">
         <img class="hidden lg:block absolute -z-10 -right-[30%] h-[85%] top-[10%]" src="img/bg-price-right.png"
              loading="lazy">
         <h2 class="mb-12 text-5xl lg:text-6xl font-['FH_Cordelia_Test']">Offers</h2>
-
         <div class="lg:gap-x-4 grid gap-x-8 lg:grid-cols-3 justify-items-center">
-
             <div
                     class="block w-full max-w-[18rem] rounded-[20px] bg-dark-2 border border-[#2A2F3A] shadow-[0px 11px 27px 0px rgba(9, 11, 15, 0.10)] mb-12 slide-in-left need-animation">
                 <ul class="w-full">
@@ -1194,8 +798,6 @@
         </div>
 
     </section>
-
-    <!-- Section: Team Block -->
     <section id="team" class="h-auto lg:h-screen grid grid-cols-1 text-center content-center relative">
         <h2 class="my-12 text-5xl lg:text-6xl font-['FH_Cordelia_Test'] puff-in-center  need-animation">Meet Our
             Greatest Team</h2>
@@ -1272,8 +874,6 @@
         </div>
 
     </section>
-
-    <!-- Section: Get in touch(last)   -->
     <section id="last" class="text-center lg:text-left lg:h-screen relative">
         <div class="px-8 lg:pt-16">
             <div class="grid items-center lg:grid-cols-2 lg:gap-x-12 content-end">
@@ -1307,21 +907,17 @@
                                 class="min-w-[50%] lg:w-auto inline-block rounded-full bg-light-1 px-4 py-2 font-medium  leading-normal text-dark-1 transition duration-150 ease-in-out hover:bg-light-0 focus:bg-light-0 focus:outline-none focus:ring-0 active:bg-light-0  hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)]">
                             Book a meeting
                         </button>
-
                     </div>
-
                     <ul
                             class="mt-10 list-style-none text-light-1">
-                        <!-- Phone -->
                         <li
                                 class="mt-4 pl-2 text-2xl">
                             +123-456-7890
-                        </li>                <!-- Email -->
+                        </li>
                         <li
                                 class=" pl-2 text-sm font-medium">
                             hello@reallygreatsite.com
                         </li>
-                        <!-- Social links -->
                         <li
                                 class="my-6">
                             <div class="flex flex-row items-center justify-center lg:justify-start">
@@ -1360,13 +956,9 @@
                                     </svg>
                                 </a>
                             </div>
-
                         </li>
-
                     </ul>
-
                 </div>
-
             </div>
         </div>
         <div class="text-center lg:text-left m-auto left-0 right-0 absolute bottom-4 m-auto left-5">
@@ -1375,48 +967,7 @@
 
     </section>
 
-
 </div>
-<script>
-    const expanded = (el) => {
-        document.querySelectorAll('[aria-expanded="true"]').forEach(item => {
-            item.ariaExpanded = 'false';
-        })
-        el.ariaExpanded = 'true';
-    }
-    document.body.addEventListener('click', (e) => {
-        if (e.target.closest('[aria-expanded]')) {
-            const li = e.target.closest('[aria-expanded]')
-            li.ariaExpanded === 'false' ? expanded(li)
-                : li.ariaExpanded = 'false';
-        }
-    })
-
-    window.onload = () => {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.target.id !== 'preload') {
-                    entry.target.classList.add('scroll-animation');
-                    observer.unobserve(entry.target);
-                } else if (entry.isIntersecting && entry.target.id === 'preload') {
-                    document.querySelector('body').classList.replace('overflow-scroll', 'overflow-hidden');
-                    document.querySelector('object').data = 'img/animate.svg';
-                    observer.unobserve(entry.target);
-                } else if (!entry.isIntersecting && entry.target.id === 'preload') {
-                    entry.target.classList.add('hidden');
-                    observer.unobserve(entry.target);
-                }
-            })
-        }, {threshold: 0.5})
-
-        document.querySelectorAll('.need-animation').forEach(img => observer.observe(img))
-    }
-    document.getElementById('hide-preload').addEventListener('click', () => {
-        document.body.classList.replace('overflow-hidden', 'overflow-scroll');
-        document.getElementById('preload').classList.add('hidden');
-    })
-    console.log(document.getAnimations())
-
-</script>
+<script src="index.js"></script>
 </body>
 </html>
